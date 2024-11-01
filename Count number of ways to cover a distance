@@ -1,0 +1,63 @@
+//Count number of ways to cover a distance 1.0 Given a distance ‘dist’, count total number of ways to cover the distance with 1, 2 and 3 steps. 
+//Count number of ways to cover a distance 2.0  Given a distance ‘dist’, count total number of ways to cover the distance with 1, 2, 3 and 4 steps. 
+//Count number of ways to cover a distance 3.0 Given a distance ‘dist’, count total number of ways to cover the distance with 1, 2, 3, 4 and 5 steps. 
+
+
+// SOLUTION FOR cover the distance with 1, 2, 3, 4 and 5 steps. : 
+
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+	    int n = sc.nextInt();
+	    int result = 0;
+	    System.out.println(result);
+	  
+	    
+	}
+	public static int  waysToCoverADistance(int n)
+	{
+	     int[] steps = new int[n+1];
+	    steps[0] = 1; // ne pravish nishto 
+	    steps[1] = 1; // pravish [1] = 1 [2] = 2 2+3 
+	    steps[2] = 2; // for 1 2 and 3 steps
+	    steps[3] = 4; // for 1 2 3 and 4 steps
+	    steps[4] = 12; // for 1 2 3 4 and 5 steps
+	    
+	    if(n ==1)
+	    {
+	       return  steps[1] = 1;
+	        
+	    }
+	    if(n==2)
+	    {
+	          return steps[2]=2; //pravish [1] = 1 [2] = 2 2+3 
+	    }
+	   
+	    if(n==4)
+	    {
+	        return steps[3] = 4; 
+	    }
+	    if(n==5)
+	    {
+	           steps[4] = 12; // for 1 2 3 4 and 5 steps
+	    }
+	   
+	 
+	    if(n>5)
+	    {
+	        for (int a=5;a<=n;a++)
+	        {
+	            steps[a] = steps[a-1] + steps[a-2] + steps[a-3] + steps[a-4] + steps[a-5];
+	        } 
+	           System.out.println(steps[n]);
+	    }
+	    for (int b=0;b<steps.length;b++ ) 
+	    {
+	        System.out.print(steps[b]+" ");
+	    }   
+	}
+}
